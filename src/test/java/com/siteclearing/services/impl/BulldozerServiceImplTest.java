@@ -12,14 +12,13 @@ import static org.junit.Assert.assertEquals;
 
 public class BulldozerServiceImplTest {
 
-    static BulldozerService bulldozerService;
-    static Bulldozer bulldozer;
-    static SiteService siteService;
-    static Site site;
+    private static BulldozerService bulldozerService;
+    private static Bulldozer bulldozer;
+    private static Site site;
 
     @BeforeClass
     public static void init() throws SimulatorException {
-        siteService = new SiteServiceImpl();
+        SiteService siteService = new SiteServiceImpl();
         bulldozerService = new BulldozerServiceImpl(siteService);
         bulldozer = new Bulldozer();
         String filePath = "src/test/java/com/siteclearing/siteMapTest.txt";

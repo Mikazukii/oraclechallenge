@@ -14,8 +14,8 @@ import static org.junit.Assert.*;
 
 public class SiteServiceImplTest {
 
-    static SiteService siteService;
-    static Site site;
+    private static SiteService siteService;
+    private static Site site;
 
     @BeforeClass
     public static void initSite() throws SimulatorException {

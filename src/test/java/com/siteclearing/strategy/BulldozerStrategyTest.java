@@ -15,19 +15,17 @@ import static org.junit.Assert.assertTrue;
 
 public class BulldozerStrategyTest {
 
-    static BulldozerStrategy strategy;
-    static Site site;
-    static BulldozerService bulldozerService;
-    static Bulldozer bulldozer;
-    static SiteService siteService;
+    private static BulldozerStrategy strategy;
+    private static Site site;
+    private static Bulldozer bulldozer;
 
     @BeforeClass
     public static void init() throws SimulatorException {
-        siteService = new SiteServiceImpl();
+        SiteService siteService = new SiteServiceImpl();
         site = siteService.constructSiteMap("src/test/java/com/siteclearing/siteMapTest.txt");
-        bulldozerService = new BulldozerServiceImpl(siteService);
+        BulldozerService bulldozerService = new BulldozerServiceImpl(siteService);
         bulldozer = new Bulldozer();
-        strategy = new BulldozerStrategy(bulldozerService);
+        strategy = new BulldozerStrategy(siteService, bulldozerService);
     }
 
     @Test
